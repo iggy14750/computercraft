@@ -21,14 +21,14 @@ function mineVolume(x, y, z)
     -- start with all positive
     comingback = false
 
-    for ypos = 1, y do
+    --for ypos = 1, y do
         for xpos = 1, x do
             for zpos = 1, z-1 do
                 turtle.dig()
                 turtle.forward()
             end
             -- Need to refactor. handles the last row.
-            if xpos == x-1 then break end
+            if xpos == x then break end
             if comingback then
                 turtle.turnLeft()
                 turtle.dig()
@@ -43,23 +43,23 @@ function mineVolume(x, y, z)
             comingback = not comingback
         end
         -- Need to refactor.
-        if ypos == y then break end
-        -- reset to back-left corner
-        if z % 2 == 1 then
-            turtle.turnLeft()
-        else
-            turtle.turnRight()
-        end
-        for i=1,z-1 do turtle.forward() end
-        if z % 2 == 1 then
-            turtle.turnLeft()
-            for i=1,x-1 do turtle.forward() end
-            turtle.turnRight()
-        end
-        turtle.turnRight()
-        turtle.digUp()
-        turtle.up()
-    end
+    --     if ypos == y then break end
+    --     -- reset to back-left corner
+    --     if z % 2 == 1 then
+    --         turtle.turnLeft()
+    --     else
+    --         turtle.turnRight()
+    --     end
+    --     for i=1,z-1 do turtle.forward() end
+    --     if z % 2 == 1 then
+    --         turtle.turnLeft()
+    --         for i=1,x-1 do turtle.forward() end
+    --         turtle.turnRight()
+    --     end
+    --     turtle.turnRight()
+    --     turtle.digUp()
+    --     turtle.up()
+    -- end
 end
 
 args = {...}
