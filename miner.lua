@@ -23,16 +23,20 @@ function mineVolume(x, y, z)
 
     --for ypos = 1, y do
         for xpos = 1, x-1 do
+            print("Entering top loop xpos: "..xpos)
             for zpos = 1, z-1 do
+                print("Entering small loop zpos: "..zpos)
                 turtle.dig()
                 turtle.forward()
             end
             if comingback then
+                print("In coming back path xpos: "..xpos)
                 turtle.turnLeft()
                 turtle.dig()
                 turtle.forward()
                 turtle.turnLeft()
             else
+                print("In not coming back path xpos: "..xpos)
                 turtle.turnRight()
                 turtle.dig()
                 turtle.forward()
