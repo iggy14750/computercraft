@@ -29,20 +29,22 @@ function mineVolume(x, y, z)
                 turtle.dig()
                 turtle.forward()
             end
-            if comingback then
-                print("In coming back path xpos: "..xpos)
-                turtle.turnLeft()
-                turtle.dig()
-                turtle.forward()
-                turtle.turnLeft()
-            else
-                print("In not coming back path xpos: "..xpos)
-                turtle.turnRight()
-                turtle.dig()
-                turtle.forward()
-                turtle.turnRight()
+            if xpos < x then
+                if comingback then
+                    print("In coming back path xpos: "..xpos)
+                    turtle.turnLeft()
+                    turtle.dig()
+                    turtle.forward()
+                    turtle.turnLeft()
+                else
+                    print("In not coming back path xpos: "..xpos)
+                    turtle.turnRight()
+                    turtle.dig()
+                    turtle.forward()
+                    turtle.turnRight()
+                end
+                comingback = not comingback
             end
-            comingback = not comingback
         end
         -- Need to refactor.
     --     if ypos == y then break end
