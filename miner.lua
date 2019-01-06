@@ -28,7 +28,7 @@ function mineVolume(x, y, z)
                 turtle.forward()
             end
             -- Need to refactor. handles the last row.
-            if xpos == x then break end
+            if xpos == x-1 then break end
             if comingback then
                 turtle.turnLeft()
                 turtle.dig()
