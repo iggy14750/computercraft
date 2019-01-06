@@ -21,23 +21,19 @@ function mineVolume(x, y, z)
     -- start with all positive
     comingback = false
 
-    --for ypos = 1, y do
+    for ypos = 1, y do
         for xpos = 1, x do
-            print("Entering top loop xpos: "..xpos)
             for zpos = 1, z-1 do
-                print("Entering small loop zpos: "..zpos)
                 turtle.dig()
                 turtle.forward()
             end
             if xpos < x then
                 if comingback then
-                    print("In coming back path xpos: "..xpos)
                     turtle.turnLeft()
                     turtle.dig()
                     turtle.forward()
                     turtle.turnLeft()
                 else
-                    print("In not coming back path xpos: "..xpos)
                     turtle.turnRight()
                     turtle.dig()
                     turtle.forward()
@@ -46,24 +42,26 @@ function mineVolume(x, y, z)
                 comingback = not comingback
             end
         end
-        -- Need to refactor.
-    --     if ypos == y then break end
-    --     -- reset to back-left corner
-    --     if z % 2 == 1 then
-    --         turtle.turnLeft()
-    --     else
-    --         turtle.turnRight()
-    --     end
-    --     for i=1,z-1 do turtle.forward() end
-    --     if z % 2 == 1 then
-    --         turtle.turnLeft()
-    --         for i=1,x-1 do turtle.forward() end
-    --         turtle.turnRight()
-    --     end
-    --     turtle.turnRight()
-    --     turtle.digUp()
-    --     turtle.up()
-    -- end
+        -- Now we get the turtle back to the bottom-left
+        -- corner and dig up a layer, to continue to the next
+        if ypos < y then
+            -- reset to back-left corner
+            if z % 2 == 1 then
+                turtle.turnLeft()
+            else
+                turtle.turnRight()
+            end
+            for i=1,z-1 do turtle.forward() end
+            if z % 2 == 1 then
+                turtle.turnLeft()
+                for i=1,x-1 do turtle.forward() end
+                turtle.turnRight()
+            end
+            turtle.turnRight()
+            turtle.digUp()
+            turtle.up()
+        end
+    end
 end
 
 args = {...}
