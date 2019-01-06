@@ -22,7 +22,7 @@ function mineVolume(x, y, z)
     comingback = false
 
     --for ypos = 1, y do
-        for xpos = 1, x-1 do
+        for xpos = 1, x do
             print("Entering top loop xpos: "..xpos)
             for zpos = 1, z-1 do
                 print("Entering small loop zpos: "..zpos)
