@@ -67,4 +67,7 @@ function mineVolume(x, y, z)
 end
 
 args = {...}
-mineVolume(args[1], args[2], args[3])
+x = tonumber(args[1])
+y = tonumber(args[2])
+z = tonumber(args[3])
+mineVolume(x, y, z)
