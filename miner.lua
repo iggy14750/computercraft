@@ -64,6 +64,30 @@ function mineVolume(x, y, z)
     end
 end
 
+function plantATree()
+    turtle.digDown()
+    turtle.down()
+    turtle.dig()
+    turtle.select(2)
+    turtle.place()
+    turtle.up()
+end
+
+function moveForward(numberBlocks)
+    for i = 1,numberBlocks-1 do turtle.forward() end
+end
+
+-- Plants the specified area with trees.
+-- Be sure the saplings are in slot 2
+function plantArea(x, z)
+    -- starting with one line.
+    for zpos = 1, math.floor(z-1 / 4) do
+        -- dig into the ground.
+        plantATree()
+        moveForward(4)
+    end
+end
+
 args = {...}
 x = tonumber(args[1])
 y = tonumber(args[2])
