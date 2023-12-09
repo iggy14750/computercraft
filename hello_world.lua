@@ -1,11 +1,15 @@
 
 --[[
+    On the development machine, being an HTTP sever using Python.
+    The CDW must be this repository.
+
+    $ python -m http.server
+
     Run this script directly in a ComputerCraft terminal with the following:
 
-    > wget run https://raw.githubusercontent.com/iggy14750/computercraft/master/hello_world.lua
+    > wget http://localhost:8000/<script> <script>
 
-    This URL can be modified to enable the use of different repositories
-    or scripts.
+    This URL can be modified to enable the use of different scripts.
 --]]
 print("Hello, ComputerCraft!")
 
